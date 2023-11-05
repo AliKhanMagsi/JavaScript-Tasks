@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+
+    .slider {
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+        transition: transform 1s;
+    }
+    
+    img {
+        width: 50%;
+        height: auto;
+   
+    }
+    p{
+        margin-left: 22%;
+        font-size: 30px;
+    }
+    </style>
+    
+</head>
+<body>
+    <div class="slider">
+        <img id="image" src="" alt="Image Slider">
+        <p id="name"></p>
+    </div>
+
+    <script >
+
+// Define an array of image URLs
+const arrayImages = [ "image1.jpg", "image2.jpg", "image3.jpg"];
+const names = ["Black", "camel", "jeans"]
+
+
+const Image = document.getElementById("image");
+const colors = document.getElementById("name")
+
+let currentIndex = 0;
+
+//creating function
+function updateSlider() {
+    Image.src = arrayImages[currentIndex];
+    colors.textContent = names[currentIndex]
+
+    currentIndex = (currentIndex + 1) % arrayImages.length; // Loop through the images
+    //currentIndex = (currentIndex + 1) % names.length;
+
+    setTimeout(updateSlider, 2000); 
+}
+
+
+updateSlider();
+
+
+    </script>
+</body>
+</html>
